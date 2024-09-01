@@ -1,0 +1,3 @@
+[submodule "kx-c-lib"]
+	path = kx-c-lib
+	url = https://github.com/KxSystems/kdb
