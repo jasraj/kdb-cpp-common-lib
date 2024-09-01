@@ -23,8 +23,10 @@ add_library(    ${PROJECT_NAME} SHARED
                 src/Time.cpp
 
                 src/Base64.cpp
+                src/File.cpp
                 src/Process.cpp
-                src/File.cpp)
+                src/System.cpp
+                )
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
