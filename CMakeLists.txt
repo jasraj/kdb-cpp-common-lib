@@ -1,7 +1,7 @@
 # CMake Builder - kdb Integration with systemd Notification Mechanism
 # Copyright (c) 2021 Jaskirat Rajasansir
 
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.10)
 
 # Global variables
 set(APP_NAME        kdb-cpp-common)
