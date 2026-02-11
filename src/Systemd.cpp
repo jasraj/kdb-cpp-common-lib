@@ -32,9 +32,6 @@ const std::string isWatchdog = std::string("WATCHDOG=1");
 // systemd string prefix to publish information to systemd
 const std::string isStatusPrefix = std::string("STATUS=");
 
-// Multiplier to convert between milliseconds and nanoseconds
-const uint64_t msToNano = 1000000;
-
 
 // Notifies that the current process is ready
 //  @see sd_pid_notify
@@ -93,7 +90,7 @@ extern "C" K _cpp_systemd_sendStopping(K nullArg) {
 
 extern "C" K _cpp_systemd_getInterval(K nullArg) {
     int interval = kdbsystemd::notifyGetIntervalMs();
-    return ktj(-KN, interval * kdbsystemd::msToNano);
+    return ktj(-KN, interval * kdbtime::NANOSECONDS_IN_1_MSEC);
 }
 
 extern "C" K _cpp_systemd_sendWatchdog(K nullArg) {

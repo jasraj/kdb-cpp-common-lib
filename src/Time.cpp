@@ -12,6 +12,8 @@ const long TIMESTAMP_OFFSET = 946684800000000000;
 
 const long NANOSECONDS_IN_1_SEC = 1000000000;
 
+const long NANOSECONDS_IN_1_MSEC = 1000000;
+
 
 K timespecToTimestamp(timespec tTime) {
     long timespecNs = (tTime.tv_sec * kdbtime::NANOSECONDS_IN_1_SEC) + tTime.tv_nsec;
