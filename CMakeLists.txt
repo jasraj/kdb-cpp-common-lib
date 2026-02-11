@@ -3,6 +3,9 @@
 
 cmake_minimum_required(VERSION 3.10)
 
+# Configurable components
+option(BUILD_SYSTEMD_COMPONENT "Include the systemd integration as part of the shared library" OFF)
+
 # Global variables
 set(APP_NAME        kdb-cpp-common)
 set(MAJOR_VERSION   1)
@@ -28,6 +31,10 @@ add_library(    ${PROJECT_NAME} SHARED
                 src/System.cpp
                 )
 
+if(BUILD_SYSTEMD_COMPONENT)
+    target_sources(${PROJECT_NAME} PRIVATE src/Systemd.cpp)
+endif()
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -39,6 +46,14 @@ set_target_properties(  ${PROJECT_NAME} PROPERTIES
 add_compile_definitions(KXVER=3)
 
 target_include_directories(${PROJECT_NAME} PRIVATE .)
+
+if(BUILD_SYSTEMD_COMPONENT)
+    target_link_libraries(${PROJECT_NAME} systemd)
+endif()
+
+MESSAGE(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
+MESSAGE(STATUS "Build systemd: " ${BUILD_SYSTEMD_COMPONENT})
+
 
 # Local installation with 'cmake --install' and for CPack
 include(GNUInstallDirs)
