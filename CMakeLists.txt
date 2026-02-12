@@ -1,5 +1,5 @@
-# CMake Builder - kdb Integration with systemd Notification Mechanism
-# Copyright (c) 2021 Jaskirat Rajasansir
+# CMake Builder - Shared Library for Common Functionality in kdb+
+# Copyright (c) 2026 Jaskirat Rajasansir
 
 cmake_minimum_required(VERSION 3.10)
 
@@ -9,13 +9,16 @@ option(BUILD_SYSTEMD_COMPONENT "Include the systemd integration as part of the s
 # Global variables
 set(APP_NAME        kdb-cpp-common)
 set(MAJOR_VERSION   1)
-set(FULL_VERSION    ${MAJOR_VERSION}.0.0)
+set(MINOR_VERSION   1)
+set(PATCH_VERSION   0)
+set(FULL_VERSION    ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION})
 
 set(APP_DESCRPTION "C++ based common libraries for kdb+")
 set(APP_LICENSE "Apache 2.0")
 set(APP_URL "https://github.com/jasraj/kdb-cpp-common-lib")
 set(APP_VENDOR "Jaskirat Rajasansir")
 
+message(STATUS "[kdb-cpp-common-lib] Build version:   " ${FULL_VERSION})
 message(STATUS "[kdb-cpp-common-lib] Build type:      " ${CMAKE_BUILD_TYPE})
 message(STATUS "[kdb-cpp-common-kib] Include systemd: " ${BUILD_SYSTEMD_COMPONENT})
 
