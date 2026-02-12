@@ -26,6 +26,16 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
+The `Dockerfile` in this repository can be used to create an image that will be able to compile the library for Ubuntu:
+
+```bash
+# Explicitly build for x86_64 (if running on M-series Mac)
+podman build -t jasraj/cmake:1.0.0 --arch=x86_64 .
+
+# Start a container with the new image and run compilation commands
+podman run -it --rm -v $(pwd):/opt/git/repo --arch=x86_64 jasraj/cmake:1.0.0 /bin/bash
+```
+
 ### Optional Components
 
 All the components marked as optional in the table above will be excluded (`OFF`) by default. The sections below describe how to enable them and the additional library requirements.
