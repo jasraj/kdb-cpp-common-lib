@@ -10,6 +10,7 @@
 #include "errno.h"
 
 #include "include/Common.hpp"
+#include "include/Time.hpp"
 
 #include <systemd/sd-daemon.h>
 

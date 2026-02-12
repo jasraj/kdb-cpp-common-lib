@@ -16,6 +16,8 @@ set(APP_LICENSE "Apache 2.0")
 set(APP_URL "https://github.com/jasraj/kdb-cpp-common-lib")
 set(APP_VENDOR "Jaskirat Rajasansir")
 
+message(STATUS "[kdb-cpp-common-lib] Build type:      " ${CMAKE_BUILD_TYPE})
+message(STATUS "[kdb-cpp-common-kib] Include systemd: " ${BUILD_SYSTEMD_COMPONENT})
 
 project(    ${APP_NAME}
             LANGUAGES CXX
@@ -50,9 +52,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE .)
 if(BUILD_SYSTEMD_COMPONENT)
     target_link_libraries(${PROJECT_NAME} systemd)
 endif()
-
-MESSAGE(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
-MESSAGE(STATUS "Build systemd: " ${BUILD_SYSTEMD_COMPONENT})
 
 
 # Local installation with 'cmake --install' and for CPack

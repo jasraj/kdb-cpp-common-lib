@@ -7,6 +7,8 @@ extern long TIMESTAMP_OFFSET;
 
 extern long NANOSECONDS_IN_1_SEC;
 
+extern long NANOSECONDS_IN_1_MSEC;
+
 K timespecToTimestamp(timespec tTime);
 
 
